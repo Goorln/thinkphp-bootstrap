@@ -46,7 +46,7 @@ class User
      */
     public function save(Request $request)
     {
-        //
+        return dd($request->param());
     }
 
     /**
