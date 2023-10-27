@@ -17,7 +17,14 @@ class User
     public function index()
     {
         return view('index', [
-            'list' => UserModel::order('id', 'asc')->paginate(5)
+            'list' => UserModel::withSearch(['gender', 'username', 'email'], [
+                'gender' => request()->param('gender'),
+                'username' => request()->param('username'),
+                'email' => request()->param('email')
+            ])->paginate([
+                'list_rows' => 5,
+                'query' => request()->param()
+            ])
         ]);
     }
 
@@ -28,7 +35,7 @@ class User
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**

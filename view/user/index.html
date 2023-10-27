@@ -60,7 +60,9 @@
               </div>
               <div class="col-auto">
                 <button class="btn btn-primary">搜索</button>
-                <button class="btn btn-success">添加用户</button>
+                <a class="btn btn-success" href="{:url('/user/create')}"
+                  >添加用户</a
+                >
               </div>
             </div>
           </form>
@@ -78,13 +80,19 @@
               </tr>
             </thead>
             <tbody>
-              {volist name="list" id="obj"}
+              {assign name="empty" value='
+              <tr>
+                <td colspan="7" class="text-center text-muted">没有数据</td>
+              </tr>
+              '} {volist name="list" id="obj" empty="$empty"}
               <tr>
                 <td class="text-center">{$obj.id}</td>
                 <td>{$obj.username}</td>
                 <td class="text-center">{$obj.gender==1?'男':'女'}</td>
                 <td>{$obj.email}</td>
-                <td class="text-center">{$obj.status}</td>
+                <td class="text-center">
+                  <span class="badge bg-{$obj.badge}">{$obj.status}</span>
+                </td>
                 <td class="text-center">{$obj.create_time}</td>
                 <td class="text-center">
                   <button class="btn btn-danger btn-sm">删除</button>
