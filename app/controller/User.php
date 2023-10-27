@@ -1,16 +1,9 @@
 <?php
-/*
- * @Descripttion: 
- * @version: 
- * @Author: Goorln
- * @Date: 2023-10-27 17:01:27
- */
 
 declare(strict_types=1);
 
 namespace app\controller;
 
-use think\facade\View;
 use think\Request;
 use app\model\User as UserModel;
 
@@ -23,8 +16,8 @@ class User
      */
     public function index()
     {
-        return View::fetch('index', [
-            'list' => UserModel::select()
+        return view('index', [
+            'list' => UserModel::order('id', 'asc')->paginate(5)
         ]);
     }
 

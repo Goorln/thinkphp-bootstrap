@@ -1,4 +1,11 @@
 <?php
+/*
+ * @Descripttion: 
+ * @version: 
+ * @Author: Goorln
+ * @Date: 2023-10-27 16:09:11
+ */
+
 use app\ExceptionHandle;
 use app\Request;
 
@@ -6,4 +13,5 @@ use app\Request;
 return [
     'think\Request'          => Request::class,
     'think\exception\Handle' => ExceptionHandle::class,
+    'think\Paginator'        => 'app\common\Bootstrap'
 ];
