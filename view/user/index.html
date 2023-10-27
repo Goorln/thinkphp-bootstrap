@@ -21,6 +21,49 @@
           <button class="btn btn-secondary">权限管理</button>
         </div>
         <div class="col-10 main">
+          <!-- 搜索表单 -->
+          <form action="{:url('/user')}" class="pb-5">
+            <div class="row g-2 align-items-center">
+              <div class="col-auto">
+                <label for="username" class="col-form-label">用户名：</label>
+              </div>
+              <div class="col-2">
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  class="form-control"
+                  placeholder="查询的用户名"
+                />
+              </div>
+              <div class="col-auto">
+                <label for="email" class="col-form-label">邮箱：</label>
+              </div>
+              <div class="col-2">
+                <input
+                  type="text"
+                  id="email"
+                  name="email"
+                  class="form-control"
+                  placeholder="查询的邮箱"
+                />
+              </div>
+              <div class="col-auto">
+                <label for="gender" class="col-form-label">性别：</label>
+              </div>
+              <div class="col-auto">
+                <select name="gender" id="gender" class="form-select">
+                  <option selected value="">选择性别：</option>
+                  <option value="1">男</option>
+                  <option value="2">女</option>
+                </select>
+              </div>
+              <div class="col-auto">
+                <button class="btn btn-primary">搜索</button>
+                <button class="btn btn-success">添加用户</button>
+              </div>
+            </div>
+          </form>
           <!-- 数据列表 -->
           <table class="table table-bordered">
             <thead class="bg-light">
