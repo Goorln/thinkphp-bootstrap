@@ -1,4 +1,10 @@
 <?php
+/*
+ * @Descripttion: 
+ * @version: 
+ * @Author: Goorln
+ * @Date: 2023-10-27 16:09:11
+ */
 
 return [
     // 默认使用的数据库连接配置
@@ -38,7 +44,7 @@ return [
             // 数据库编码默认采用utf8
             'charset'         => env('database.charset', 'utf8'),
             // 数据库表前缀
-            'prefix'          => env('database.prefix', ''),
+            'prefix'          => env('database.prefix', 'tp_'),
 
             // 数据库部署方式:0 集中式(单一服务器),1 分布式(主从服务器)
             'deploy'          => 0,

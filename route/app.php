@@ -1,4 +1,10 @@
 <?php
+/*
+ * @Descripttion: 
+ * @version: 
+ * @Author: Goorln
+ * @Date: 2023-10-27 16:09:11
+ */
 // +----------------------------------------------------------------------
 // | ThinkPHP [ WE CAN DO IT JUST THINK ]
 // +----------------------------------------------------------------------
@@ -15,3 +21,6 @@ Route::get('think', function () {
 });
 
 Route::get('hello/:name', 'index/hello');
+
+// 用户模块路由
+Route::resource('user', 'User');

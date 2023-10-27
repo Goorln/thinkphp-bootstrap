@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="__CSS__/bootstrap.min.css" />
+    <link rel="stylesheet" href="__CSS__/style.css" />
+    <script src="__JS__/jquery-3.7.1.min.js"></script>
+    <script src="__JS__/bootstrap.bundle.min.js"></script>
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container pt-5 mt-5">
+      <div class="row">
+        <div class="col-2 sidebar">
+          <button class="btn btn-secondary">用户管理</button>
+          <button class="btn btn-secondary">喜好管理</button>
+          <button class="btn btn-secondary">书籍管理</button>
+          <button class="btn btn-secondary">角色管理</button>
+          <button class="btn btn-secondary">权限管理</button>
+        </div>
+        <div class="col-10 main">
+          <table class="table table-bordered">
+            <thead class="bg-light">
+              <tr>
+                <th class="text-center">ID</th>
+                <th>用户名</th>
+                <th class="text-center">性别</th>
+                <th>邮箱</th>
+                <th class="text-center">状态</th>
+                <th class="text-center">创建时间</th>
+                <th class="text-center">操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              {volist name="list" id="obj"}
+              <tr>
+                <td class="text-center">{$obj.id}</td>
+                <td>{$obj.username}</td>
+                <td class="text-center">{$obj.gender==1?'男':'女'}</td>
+                <td>{$obj.email}</td>
+                <td class="text-center">{$obj.status}</td>
+                <td class="text-center">{$obj.create_time}</td>
+                <td class="text-center">
+                  <button class="btn btn-danger btn-sm">删除</button>
+                  <button class="btn btn-warning btn-sm">编辑</button>
+                </td>
+              </tr>
+              {/volist}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
