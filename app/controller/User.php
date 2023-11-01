@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace app\controller;
 
 use think\Request;
+use think\exception\ValidateException;
 use app\model\User as UserModel;
+use app\validate\User as UserValidate;
 
 class User
 {
@@ -46,7 +48,12 @@ class User
      */
     public function save(Request $request)
     {
-        return dd($request->param());
+        // return dd($request->param());
+        try {
+            validate(UserValidate::class)->batch(true)->check($request->param());
+        } catch (ValidateException $exception) {
+            dd($exception->getError());
+        }
     }
 
     /**
