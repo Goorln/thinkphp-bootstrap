@@ -48,12 +48,28 @@ class User
      */
     public function save(Request $request)
     {
-        // return dd($request->param());
+        $data = $request->param();
         try {
-            validate(UserValidate::class)->batch(true)->check($request->param());
+            validate(UserValidate::class)->batch(true)->check($data);
         } catch (ValidateException $exception) {
-            dd($exception->getError());
+            return view('./view/public/toast.html', [
+                'infos' => $exception->getError(),
+                'url_text' => '返回上一页',
+                'url_path' => url('/user/create')
+            ]);
         }
+
+        // 密码加密
+        $data['password'] = sha1($data['password']);
+
+        // 写入数据库
+        $id = UserModel::create($data)->getData('id');
+
+        return $id ? view('./view/public/toast.html', [
+            'infos' => ['恭喜注册成功~'],
+            'url_text' => '去首页',
+            'url_path' => url('/')
+        ]) : '注册失败';
     }
 
     /**

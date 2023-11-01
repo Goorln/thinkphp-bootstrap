@@ -1,0 +1,40 @@
+<!--
+ * @Descripttion: 
+ * @Author: Goorln
+ * @Date: 2023-11-01 19:35:06
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- css文件 -->
+    <link rel="stylesheet" href="__CSS__/bootstrap.min.css" />
+    <link rel="stylesheet" href="__CSS__/style.css" />
+  </head>
+  <body>
+    <!-- 简易提示 -->
+    <div class="d-flex justify-content-center align-items-center vw-100 vh-100">
+      <div class="toast show mb-5">
+        <div class="toast-header">
+          <strong>~ 系统提示</strong>
+        </div>
+        <div class="toast-body">
+          <ol class="text-danger">
+            {volist name="infos" id="item"}
+            <li>{$item}</li>
+            {/volist}
+          </ol>
+          <a href="{$url_path}" class="btn btn-primary btn-sm w-100"
+            >{$url_text}</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- 引入JS文件 -->
+    <script src="__JS__/jquery-3.7.1.min.js"></script>
+    <script src="__JS__/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
