@@ -95,8 +95,13 @@
                 </td>
                 <td class="text-center">{$obj.create_time}</td>
                 <td class="text-center">
-                  <button class="btn btn-danger btn-sm">删除</button>
-                  <button class="btn btn-warning btn-sm">编辑</button>
+                  <form action="{:url('/user/'.$obj.id)}" method="post">
+                    <input type="hidden" name="_method" value="delete" />
+                    <button class="btn btn-danger btn-sm btn-delete">
+                      删除
+                    </button>
+                    <button class="btn btn-warning btn-sm">编辑</button>
+                  </form>
                 </td>
               </tr>
               {/volist}
@@ -107,5 +112,11 @@
         </div>
       </div>
     </div>
+    <script>
+      $(".btn-delete").click(() => {
+        let flag = confirm("您确定要删除吗？");
+        return flag ? true : false;
+      });
+    </script>
   </body>
 </html>

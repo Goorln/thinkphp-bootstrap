@@ -103,7 +103,7 @@ class User
      */
     public function update(Request $request, $id)
     {
-        //
+        return '修改:' . $id;
     }
 
     /**
@@ -114,6 +114,11 @@ class User
      */
     public function delete($id)
     {
-        //
+        return UserModel::destroy($id) ?
+            view('./view/public/toast.html', [
+                'infos' => ['恭喜删除成功~'],
+                'url_text' => '去首页',
+                'url_path' => url('/')
+            ]) : '删除失败';
     }
 }
