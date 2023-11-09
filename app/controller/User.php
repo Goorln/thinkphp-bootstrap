@@ -91,7 +91,9 @@ class User
      */
     public function edit($id)
     {
-        //
+        return view('edit', [
+            'obj' => UserModel::find($id)
+        ]);
     }
 
     /**

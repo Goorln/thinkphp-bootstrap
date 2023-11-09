@@ -100,7 +100,11 @@
                     <button class="btn btn-danger btn-sm btn-delete">
                       删除
                     </button>
-                    <button class="btn btn-warning btn-sm">编辑</button>
+                    <a
+                      href="{:url('/user/'.$obj.id.'/edit')}"
+                      class="btn btn-warning btn-sm"
+                      >编辑</a
+                    >
                   </form>
                 </td>
               </tr>
